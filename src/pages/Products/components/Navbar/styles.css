@@ -1,0 +1,50 @@
+.navbar {
+  height: 100vh;
+  padding: 2rem;
+  background-color: var(--nav-color);
+  color: var(--white);
+}
+
+.main-nav {
+  margin-top: 5.25rem;
+}
+
+.nav-option {
+  width: 168px;
+  height: 40px;
+  padding-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 0.25px;
+}
+
+.nav-option > svg {
+  font-size: 1.5rem;
+}
+
+.nav-option:hover {
+  color: var(--background);
+}
+
+.selected {
+  background-color: var(--background);
+  transition: filter 0.2 ease;
+}
+
+.selected:hover {
+  color: var(--white);
+  filter: brightness(0.9);
+}
+
+.logout {
+  color: var(--background);
+}
+
+.logout:hover {
+  color: var(--white);
+}
+
+.second-nav {
+  margin-top: 11.5rem;
+}
