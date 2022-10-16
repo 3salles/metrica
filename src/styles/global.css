@@ -8,6 +8,7 @@
   --placeholder-color: #666666;
   --box-shadow: rgba(0, 0, 0, 0.1);
   --nav-color: #282828;
+  --gray: #B3B3B3;
 }
 
 * {
@@ -23,6 +24,10 @@ body {
 
 body, input, textarea, button, select {
   font: 400 1rem "Montserrat", sans-serif;
+}
+
+article {
+  width: 100%;
 }
 
 button {
