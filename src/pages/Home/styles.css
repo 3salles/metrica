@@ -1,0 +1,8 @@
+section {
+  display: flex;
+}
+
+.logo-container {
+  background: var(--background);
+  height: 100vh;
+}
