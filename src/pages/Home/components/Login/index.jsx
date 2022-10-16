@@ -1,3 +1,4 @@
+import Dropdown from '../Dropdown';
 import './styles.css';
 
 export default function Login() {
@@ -7,14 +8,7 @@ export default function Login() {
       <form action="login">
         <label for="selector">
           Setor
-          <div class="dropdown">
-            <select>
-              <option value="0">Selecione ocupação</option>
-              <option value="1">Administração</option>
-              <option value="2">Estoque</option>
-              <option value="3">Vendas</option>
-            </select>
-          </div>
+          <Dropdown />
         </label>
         <label for="email">
           Email
