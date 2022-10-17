@@ -28,15 +28,15 @@ export default function Login() {
             placeholder="Sua senha"
           />
         </label>
-        <div class="actions-container">
-          <label class="remember-me" for="remember-me">
+        <div className="actions-container">
+          <label className="remember-me" for="remember-me">
             <input type="checkbox" name="remember-me" id="remember-me" />
             Lembrar-me
           </label>
           <a href="#">Esqueceu a senha?</a>
         </div>
         <footer>
-          <input class="submit-button" type="button" value="Entrar" />
+          <input className="submit-button" type="button" value="Entrar" />
         </footer>
       </form>
     </article>
