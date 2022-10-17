@@ -9,6 +9,8 @@
   --box-shadow: rgba(0, 0, 0, 0.1);
   --nav-color: #282828;
   --gray: #B3B3B3;
+  --light-gray: #E6E6E6;
+  --gray-lighter: #FAFAFA;
 }
 
 * {
