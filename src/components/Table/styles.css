@@ -1,0 +1,36 @@
+table {
+  margin-top: 1rem;
+  border-spacing: 0;
+}
+
+thead {
+  background-color: var(--table-cell-color);
+}
+
+th {
+  padding: 1.5rem 0.75rem;
+  border: 0;
+  border-radius: 4px 0 4px 0;
+}
+
+tbody {
+  background: var(--table-background);
+  border-radius: 0 4px 0 4px;
+}
+
+tr > td {
+  border-bottom: 1px solid var(--table-line);
+}
+
+td {
+  padding: 24px;
+  
+}
+
+td:nth-child(2){
+  width: 300px;
+}
+
+tr > .remove-border {
+  border: 0;
+}

@@ -1,7 +1,5 @@
 header {
   width: 100%;
-  margin-top: 3.75rem;
-  padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   gap: 12rem;

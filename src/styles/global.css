@@ -11,6 +11,9 @@
   --gray: #B3B3B3;
   --light-gray: #E6E6E6;
   --gray-lighter: #FAFAFA;
+  --table-background: #FCFCFC;
+  --table-cell-color: #F7F7F7;
+  --table-line: #F2F2F2;
 }
 
 * {
