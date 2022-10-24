@@ -1,7 +1,15 @@
+import { useNavigate } from 'react-router-dom';
+
 import Dropdown from '../Dropdown';
 import './styles.css';
 
 export default function Login() {
+  const navigate = useNavigate();
+
+  const handleOnSubmit = () => {
+    navigate('/products');
+  };
+
   return (
     <article className="login-container">
       <h1>Entrar</h1>
@@ -36,7 +44,12 @@ export default function Login() {
           <a href="#">Esqueceu a senha?</a>
         </div>
         <footer>
-          <input className="submit-button" type="button" value="Entrar" />
+          <input
+            className="submit-button"
+            type="button"
+            value="Entrar"
+            onClick={handleOnSubmit}
+          />
         </footer>
       </form>
     </article>
