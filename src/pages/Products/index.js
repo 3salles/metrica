@@ -2,6 +2,8 @@ import { createColumnHelper } from '@tanstack/react-table';
 import Header from 'components/Header';
 import Table from 'components/Table';
 import { useProducts } from 'hooks/useProducts';
+import { currencyFormatter } from 'utils/currency';
+
 import Navbar from './components/Navbar';
 import NewProduct from './components/NewProduct';
 
@@ -24,11 +26,7 @@ const columns = [
   }),
   columnHelper.accessor('price', {
     header: 'Preço',
-    cell: info =>
-      new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-      }).format(info.getValue()),
+    cell: info => currencyFormatter(info.getValue()),
   }),
 ];
 

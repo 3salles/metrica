@@ -1,5 +1,6 @@
 import { useProducts } from 'hooks/useProducts';
 import { useState } from 'react';
+import { currencyFormatter, currencyParser } from 'utils/currency';
 import './styles.css';
 
 export default function NewProduct() {
@@ -8,7 +9,7 @@ export default function NewProduct() {
   const [id, setId] = useState('');
   const [name, setName] = useState('');
   const [stock, setStock] = useState(0);
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState(currencyFormatter(0));
 
   const handleOnChangeId = evt => {
     const { value } = evt?.target;
@@ -27,7 +28,7 @@ export default function NewProduct() {
 
   const handleOnChangePrice = evt => {
     const { value } = evt?.target;
-    setPrice(value);
+    setPrice(currencyParser(value));
   };
 
   const onAddNewProduct = evt => {
@@ -37,7 +38,7 @@ export default function NewProduct() {
       id: id,
       name: name,
       stock: Number(stock),
-      price: Number(price),
+      price: price,
     };
 
     addNewProduct(product);
@@ -87,7 +88,7 @@ export default function NewProduct() {
             name="price"
             id="price"
             placeholder="R$ 0,00"
-            value={price}
+            value={currencyFormatter(price)}
             onChange={handleOnChangePrice}
           />
         </label>
