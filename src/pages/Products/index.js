@@ -1,9 +1,7 @@
 import { createColumnHelper } from '@tanstack/react-table';
 import Header from 'components/Header';
 import Table from 'components/Table';
-import { collection, getDocs } from 'firebase/firestore';
-import { useEffect, useState } from 'react';
-import { db } from 'services/firebase-config';
+import { useProducts } from 'hooks/useProducts';
 import Navbar from './components/Navbar';
 import NewProduct from './components/NewProduct';
 
@@ -35,17 +33,7 @@ const columns = [
 ];
 
 export default function Products() {
-  const [products, setProducts] = useState([]);
-  const productsCollectionRef = collection(db, 'products');
-
-  useEffect(() => {
-    const getProducts = async () => {
-      const data = await getDocs(productsCollectionRef);
-      setProducts(data.docs.map(doc => ({ ...doc.data() })));
-    };
-
-    getProducts();
-  }, [productsCollectionRef]);
+  const { products } = useProducts();
 
   return (
     <section>

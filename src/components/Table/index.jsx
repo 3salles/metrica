@@ -1,10 +1,8 @@
 import {
-  createColumnHelper,
   flexRender,
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table';
-import { useState } from 'react';
 import './styles.css';
 
 export default function Table(props) {
