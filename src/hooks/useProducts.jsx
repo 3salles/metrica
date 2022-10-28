@@ -1,4 +1,4 @@
-import { collection, getDocs } from 'firebase/firestore';
+import { addDoc, collection, getDocs } from 'firebase/firestore';
 import { db } from 'services/firebase-config';
 
 const { createContext, useState, useEffect, useContext } = require('react');
@@ -8,6 +8,10 @@ const ProductContext = createContext({});
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const productsCollectionRef = collection(db, 'products');
+
+  const addNewProduct = async product => {
+    await addDoc(productsCollectionRef, { ...product });
+  };
 
   useEffect(() => {
     const getProducts = async () => {
@@ -19,7 +23,7 @@ export const ProductsProvider = ({ children }) => {
   }, [productsCollectionRef]);
 
   return (
-    <ProductContext.Provider value={{ products }}>
+    <ProductContext.Provider value={{ products, addNewProduct }}>
       {children}
     </ProductContext.Provider>
   );
