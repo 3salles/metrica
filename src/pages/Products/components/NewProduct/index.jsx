@@ -9,7 +9,7 @@ export default function NewProduct() {
   const [id, setId] = useState('');
   const [name, setName] = useState('');
   const [stock, setStock] = useState(0);
-  const [price, setPrice] = useState(currencyFormatter(0));
+  const [price, setPrice] = useState(0);
 
   const handleOnChangeId = evt => {
     const { value } = evt?.target;
