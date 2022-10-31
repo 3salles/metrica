@@ -53,3 +53,8 @@ label > div {
 .add-button:hover {
   filter: brightness(0.9);
 }
+
+.add-button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}

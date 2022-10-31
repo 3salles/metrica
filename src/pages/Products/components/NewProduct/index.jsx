@@ -1,4 +1,5 @@
 import { useProducts } from 'hooks/useProducts';
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { currencyFormatter, currencyParser } from 'utils/currency';
 import './styles.css';
@@ -10,6 +11,7 @@ export default function NewProduct() {
   const [name, setName] = useState('');
   const [stock, setStock] = useState(0);
   const [price, setPrice] = useState(0);
+  const [disableButton, setDisableButton] = useState(true);
 
   const handleOnChangeId = evt => {
     const { value } = evt?.target;
@@ -31,6 +33,14 @@ export default function NewProduct() {
     setPrice(currencyParser(value));
   };
 
+  const resetInputs = () => {
+    setId(0);
+    setName('');
+    setStock(0);
+    setPrice(0);
+    setDisableButton(true);
+  };
+
   const onAddNewProduct = evt => {
     evt.preventDefault();
 
@@ -42,7 +52,15 @@ export default function NewProduct() {
     };
 
     addNewProduct(product);
+
+    resetInputs();
   };
+
+  useEffect(() => {
+    if (id !== '' && name !== '' && price !== 0) {
+      setDisableButton(false);
+    }
+  }, [id, name, price]);
 
   return (
     <div className="new-products-container">
@@ -96,6 +114,7 @@ export default function NewProduct() {
           <button
             type="submit"
             className="add-button"
+            disabled={disableButton}
             onClick={onAddNewProduct}>
             Adicionar
           </button>
