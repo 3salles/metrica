@@ -1,5 +1,4 @@
-import { addDoc, collection, getDocs } from 'firebase/firestore';
-import { db } from 'services/firebase-config';
+import { api } from 'services/api';
 
 const { createContext, useState, useEffect, useContext } = require('react');
 
@@ -7,20 +6,17 @@ const ProductContext = createContext({});
 
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
-  const productsCollectionRef = collection(db, 'products');
 
-  const addNewProduct = async product => {
-    await addDoc(productsCollectionRef, { ...product });
+  const addNewProduct = async newProduct => {
+    const response = await api.post('/product', newProduct);
+
+    const { product } = response.data;
+    setProducts({ ...products, product });
   };
 
   useEffect(() => {
-    const getProducts = async () => {
-      const data = await getDocs(productsCollectionRef);
-      setProducts(data.docs.map(doc => ({ ...doc.data() })));
-    };
-
-    getProducts();
-  }, [productsCollectionRef]);
+    api.get('products').then(response => setProducts(response.data.products));
+  }, [products]);
 
   return (
     <ProductContext.Provider value={{ products, addNewProduct }}>
